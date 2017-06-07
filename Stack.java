@@ -4,34 +4,59 @@ public class Stack
 {	
     int stackSize;
     int[] stackElements;
-    int index;
+    int top;
     public Stack()
     {
         stackSize = 5;
         stackElements = new int[stackSize];
-        index = -1;
+        top = -1;
     }
     public Stack(int stackSize)
     {
         this.stackSize = stackSize;
         stackElements = new int[stackSize];
-        index = -1;
+        top = -1;
     }
     public boolean Push(int element)
     {
-        throw new UnsupportedOperationException();
+        if (top == (stackSize - 1))
+        {
+            return false;
+        }
+        else
+        {
+            top++;
+            stackElements[top] = element;
+            return true;
+        }
     }
-    public int Pop()
+    public int Pop() throws Exception
     {
-    	throw new UnsupportedOperationException();
+        if (top == -1)
+        {
+            throw new Exception("Stack is empty.");
+        }
+        else
+        {
+            int deletedElement = stackElements[top];
+            top--;
+            return deletedElement;
+        }
     }
-    public int Peek()
+    public int Peek() throws Exception
     {
-    	throw new UnsupportedOperationException();
+        if (top == -1)
+        {
+            throw new Exception("Stack is empty");
+        }
+        else
+        {
+            int topElement = stackElements[top];
+            return topElement;
+        }
     }
     public static void main(String [] args)
     {
     	
     }
 }
-
